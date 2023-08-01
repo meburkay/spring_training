@@ -16,6 +16,13 @@ public class Dimensions {
     private int height;
     private int depth;
 
+    //We can create constructor like this if we want.
+//    public Dimensions() {
+//        this.width=10;
+//        this.height=30;
+//        this.depth=40;
+//    }
+
     public void pressPowerButton(){
         System.out.println("Power button pressed");
     }
