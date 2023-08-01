@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
-@AllArgsConstructor
+//@AllArgsConstructor//Because of this constructor spring try to create the bean but it doesn't have the int value for the fields. Because of that it can not create bean and give error.
 @Component
 public class Dimensions {
 
