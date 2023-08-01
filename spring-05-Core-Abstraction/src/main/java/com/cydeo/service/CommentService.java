@@ -3,6 +3,7 @@ package com.cydeo.service;
 import com.cydeo.model.Comment;
 import com.cydeo.proxy.CommentNotificationProxy;
 import com.cydeo.repository.CommentRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -16,7 +17,8 @@ public class CommentService {
     //@Autowired//Instead of this we create constructor and it automatically autowired.
     private final CommentNotificationProxy commentNotificationProxy;
 
-    public CommentService(CommentRepository commentRepository, CommentNotificationProxy commentNotificationProxy) {
+    //we solve the @primary issue by using instead of it @Qualifier annotation. Here we said that when you create a CommentService use emailCommentNotificationProxy(this is the default name of the class only the first letter become lower case, When we use stereotype annotations the bean names become like this automatically)
+    public CommentService(CommentRepository commentRepository,@Qualifier("emailCommentNotificationProxy") CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
     }
