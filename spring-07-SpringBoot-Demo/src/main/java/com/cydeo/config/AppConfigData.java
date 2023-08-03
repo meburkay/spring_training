@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfigData {
 
     //When we are retrieving data from application.properties file we use this method.
-    @Value("${username}")
+    @Value("${myusername}")
     private String userName;
 
     @Value("${password}")
