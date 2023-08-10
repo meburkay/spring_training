@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller//By this annotation spring creating a bean from this class and this class registered to Handler Mapping as a controller class.
 public class HomeController {
 
-    @RequestMapping("/home")//this is the end point which is coming after the base url of the web application. For example www.amazon.com/home
+    @RequestMapping("/home")//this is the END POINT which is coming after the base url of the web application. For example www.amazon.com/home. Spring find by this information that which method will it call.
     public String home(){
-        return "home.html";
+        return "home.html";//By this string spring go to View Resolver to find the appropriate html view from the static and template folders
     }
 
     @RequestMapping("/ozzy")
