@@ -21,10 +21,10 @@ public class StudentController {
     }
 
     @RequestMapping("/welcome") //localhost:8080/student/welcome
-    public String welcome(@RequestParam int id){//We add link a parameter with parenthesis and capture it here as parameter.
+    public String welcome(@RequestParam String name){//We add link a parameter with parenthesis and capture it here as parameter.
 
 
-        System.out.println(id);
+        System.out.println(name);
         return "student/welcome";
     }
 }

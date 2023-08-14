@@ -28,8 +28,45 @@
     <a th:href="@{/student/welcome(id=3)}">Link</a>  <!--We add an id parameter and capture it when we click this link by controller method parameter as @RequestParam-->
 </h2>
 
+<h2>
+    <a th:href="@{/student/welcome(name=${students.get(0).firstName})}">Link2</a>
+</h2>
+
+<!--Iteration-->
+
+<h2>Printing Student's First Name</h2>
+<ul>
+    <li th:each=" student : ${students} " th:text="${student.firstName}"></li>
+</ul>
+
+<h2>Printing Student's Last Name</h2>
 
 
+<ul>
+    <li th:each=" student : ${students} " th:text="${student.lastName}"></li>
+</ul>
+
+<h2>Printing Student's in table</h2>
+
+<table>
+    <thead>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Age</td>
+        <td>State</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${students} ">
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.state}"></td>
+    </tr>
+
+    </tbody>
+</table>
 
 </body>
 </html>
