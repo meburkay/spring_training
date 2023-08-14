@@ -23,6 +23,10 @@
     <a th:href="@{/student/welcome}">Welcome</a>    <!--Endpoint link added-->
 </h2>
 
+<!--Adding Parameters in Link-->
+<h2>
+    <a th:href="@{/student/welcome(id=3)}">Link</a>  <!--We add an id parameter and capture it when we click this link by controller method parameter as @RequestParam-->
+</h2>
 
 
 
