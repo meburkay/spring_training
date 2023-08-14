@@ -3,7 +3,10 @@ package com.cydeo.controller;
 import com.cydeo.bootstrap.DataGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/student")//When we use this it will add all the method end points /student
@@ -17,9 +20,9 @@ public class StudentController {
         return "student/register";
     }
 
-    @RequestMapping("/drop") //localhost:8080/student/drop
-    public String drop(){
+    @RequestMapping("/welcome") //localhost:8080/student/welcome
+    public String welcome(){
 
-        return "student/register";
+        return "student/welcome";
     }
 }
