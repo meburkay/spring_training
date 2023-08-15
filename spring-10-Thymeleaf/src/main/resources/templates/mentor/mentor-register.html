@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Cydeo</title>
+</head>
+<body>
+
+<div align="center">
+
+    <form th:object="${mentor}">  <!--We attach mentor object to form here by creating it at the controller class and then take here as a variable by th:object -->
+
+        <label>First Name:</label>
+        <input type="text" th:field="*{firstName}"><br><!--By th:field and *{} we said that what the user write to input will be assigned to mentor object's first name field.-->
+
+        <label>Last Name:</label>
+        <input type="text" th:field="*{lastName}"><br>
+
+
+    </form>
+
+</div>
+
+</body>
+</html>
