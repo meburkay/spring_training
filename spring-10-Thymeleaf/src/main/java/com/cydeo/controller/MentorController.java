@@ -32,7 +32,9 @@ public class MentorController {
     @PostMapping("/confirm")
     public String submitForm(@ModelAttribute("mentor") Mentor mentor){//We use @ModelAttribute here to retrieve the mentor object that used in the form. And then we used it in the confirm view.
 
-        return "mentor/mentor-confirmation";
+        //return "mentor/mentor-confirmation";
+
+        return "redirect:/mentor/register";//By using redirect we stimulate register method, and we have a new register empty page. In this case we do not need the mentor object, we can delete it.
     }
 
 }
