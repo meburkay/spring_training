@@ -8,7 +8,8 @@
 
 <div align="center">
 
-    <form th:object="${mentor}">  <!--We attach mentor object to form here by creating it at the controller class and then take here as a variable by th:object -->
+<!--    th:action is defined for the submit button. It defines what will happen when the submit button clicked. We said here go to mentor confirm view. And we add method="post" because we will see in the future at APIs that we can create post and get methods with the same endpoints. -->
+    <form th:action="@{/mentor/confirm}" method="post" th:object="${mentor}">  <!--We attach mentor object to form here by creating it at the controller class and then take here as a variable by th:object -->
 
         <label>First Name:</label>
         <input type="text" th:field="*{firstName}"><br><!--By th:field and *{} we said that what the user write to input will be assigned to mentor object's first name field.-->
