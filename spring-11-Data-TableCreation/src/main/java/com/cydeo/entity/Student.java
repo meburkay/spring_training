@@ -10,6 +10,6 @@ public class Student {
     private Long id;
     private String firstName;
     private String lastName;
-    private String email;         //BREAK TILL 12:15
+    private String email;
 
 }
