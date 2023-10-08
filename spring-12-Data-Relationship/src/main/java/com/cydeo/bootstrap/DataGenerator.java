@@ -1,8 +1,10 @@
 package com.cydeo.bootstrap;
 
+import com.cydeo.entity.Merchant;
 import com.cydeo.entity.Payment;
 import com.cydeo.entity.PaymentDetail;
 import com.cydeo.enums.Status;
+import com.cydeo.repository.MerchantRepository;
 import com.cydeo.repository.PaymentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -14,10 +16,13 @@ import java.time.LocalDate;
 public class DataGenerator implements CommandLineRunner {
 
     private final PaymentRepository paymentRepository;
+    private final MerchantRepository merchantRepository;
 
-    public DataGenerator(PaymentRepository paymentRepository) {
+    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository) {
         this.paymentRepository = paymentRepository;
+        this.merchantRepository = merchantRepository;
     }
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -31,6 +36,14 @@ public class DataGenerator implements CommandLineRunner {
         PaymentDetail paymentDetail2 = new PaymentDetail(new BigDecimal("90000"),new BigDecimal("5000"),LocalDate.of(2022,4,29));
 
         payment2.setPaymentDetail(paymentDetail2);
+
+        Merchant merchant1 = new Merchant("AmazonSubMerchant","M123",new BigDecimal("0.25"),new BigDecimal("3.25"),5);
+
+        payment1.setMerchant(merchant1);
+        payment2.setMerchant(merchant1);
+
+        merchantRepository.save(merchant1);
+
 
         //Because of the cascade at the Payment's PaymentDetail instance when we save payment1 to Payment table it automatically save PaymentDetail1 to PaymentDetail table also.
         //If we do not use cascade we must create PaymentDetailRepository, and we have to save PaymentDetail data to tables then we must execute below code. Otherwise, it gives exception.
