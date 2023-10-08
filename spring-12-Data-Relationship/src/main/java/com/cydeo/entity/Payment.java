@@ -32,6 +32,9 @@ public class Payment {
     @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})//by this way we can give whatever type we wanna give.
     private PaymentDetail paymentDetail;
 
+    //One Merchant can have many payments. Because of that we add merchant id to Payment table. By this way we can show the merchant ids at one row. Otherwise at Merchant table we have to show more than one Payment ids at Merchant table's one row. We can not do that.
+    @ManyToOne
+    private Merchant merchant;
 
 
     public Payment(LocalDate createdDate, BigDecimal amount, Status paymentStatus) {
