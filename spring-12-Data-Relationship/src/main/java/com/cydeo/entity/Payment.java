@@ -26,6 +26,12 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private Status paymentStatus;
 
+    @OneToOne//this annotation creates the join relationship and by this when the table payment table created spring automatically add to it the PaymentDetail foregin key.
+    //@JoinColumn(name = "payment_detail_id")//with this we can change the foreign key name. In default it is payment_detail_id and generally people use the default way.
+    private PaymentDetail paymentDetail;
+
+
+
     public Payment(LocalDate createdDate, BigDecimal amount, Status paymentStatus) {
         this.createdDate = createdDate;
         this.amount = amount;
