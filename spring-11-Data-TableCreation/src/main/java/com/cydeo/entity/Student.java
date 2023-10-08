@@ -31,4 +31,8 @@ public class Student {
     @Enumerated(EnumType.STRING)//For enums we use this annotation to change it to String. Otherwise it is understanded as integer as a default.
 //    @Enumerated(EnumType.ORDINAL) // this is the default form.
     private Gender gender;
+
+    @Transient//means don't add this variable to table.
+    private String city;
+
 }
