@@ -2,6 +2,8 @@ package com.cydeo.bootstrap;
 
 import com.cydeo.entity.*;
 import com.cydeo.enums.Status;
+import com.cydeo.repository.CartRepository;
+import com.cydeo.repository.ItemRepository;
 import com.cydeo.repository.MerchantRepository;
 import com.cydeo.repository.PaymentRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -16,10 +18,14 @@ public class DataGenerator implements CommandLineRunner {
 
     private final PaymentRepository paymentRepository;
     private final MerchantRepository merchantRepository;
+    private final CartRepository cartRepository;
+    private final ItemRepository itemRepository;
 
-    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository) {
+    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository, CartRepository cartRepository, ItemRepository itemRepository) {
         this.paymentRepository = paymentRepository;
         this.merchantRepository = merchantRepository;
+        this.cartRepository = cartRepository;
+        this.itemRepository = itemRepository;
     }
 
 
@@ -50,6 +56,13 @@ public class DataGenerator implements CommandLineRunner {
 
         cart1.setItemList(Arrays.asList(item1,item2,item3));
         cart2.setItemList(Arrays.asList(item1,item2));
+
+        itemRepository.save(item1);
+        itemRepository.save(item2);
+        itemRepository.save(item3);
+
+        cartRepository.save(cart1);
+        cartRepository.save(cart2);
 
 
         merchantRepository.save(merchant1);
