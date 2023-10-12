@@ -16,7 +16,7 @@ public class Employee extends BaseEntity {
     private String firstName;
     private String lastName;
     private String email;
-    private LocalDate hireDate;
+    private LocalDate hireDate;//After some version there is no need to specify the date type by annotations.
     @Enumerated(EnumType.STRING)
     private Gender gender;
     private Integer salary;
