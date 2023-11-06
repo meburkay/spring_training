@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController//Sum of Controller and ResponseBody. By this we are saying that this Controller is created for RestAPI no view.
-@RequestMapping("/courses")
+@RequestMapping("/courses/api/v1")//this is the general convention of end point name created for api.
 public class CourseController {
 
     private final CourseService courseService;
