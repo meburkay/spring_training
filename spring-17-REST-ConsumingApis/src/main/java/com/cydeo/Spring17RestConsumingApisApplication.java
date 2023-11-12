@@ -2,10 +2,12 @@ package com.cydeo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
+@EnableFeignClients//For consuming apis by feign way we must put this here.
 public class Spring17RestConsumingApisApplication {
 
     public static void main(String[] args) {
