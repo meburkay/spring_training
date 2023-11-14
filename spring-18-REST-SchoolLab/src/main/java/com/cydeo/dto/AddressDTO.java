@@ -2,6 +2,9 @@ package com.cydeo.dto;
 
 import com.cydeo.enums.AddressType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +14,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+//In general the 2 lines below is used for all the dto classes. To use them is best practice.
+@JsonIgnoreProperties(ignoreUnknown = true)
+//This means include our datas only the nonnull datas/fields. If when the converting operation the field is null ignore it, do not show it.
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AddressDTO {
 
+    @JsonIgnore
     private Long id;
 
     private String street;
@@ -34,6 +42,7 @@ public class AddressDTO {
     @JsonBackReference(value = "teacher-address-reference")          // defaultReference
     private TeacherDTO teacher;
 
+    // Weather information, which we will later get it from 3rd party API
     private Integer currentTemperature;
 
 }
