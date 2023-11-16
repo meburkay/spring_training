@@ -25,6 +25,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+<!--        We add this dependency to use xml formats with our jackson-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.14.0</version>
+        </dependency>
 <!--        We add this dependency for openapi swagger documentation-->
         <dependency>
             <groupId>org.springdoc</groupId>
