@@ -1,6 +1,8 @@
 package com.cydeo.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -116,6 +118,32 @@ public class LoggingAspect {
 //    }
 
 
+    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
+    public void loggingAnnotationPC() {}
+
+    //We use @Around here. We define return type as an Object because we will use it. And different from others we use ProceedingJoinPoint here. It is similar to JoinPoint the one difference is ProceedingJoinPoint has a proceed method which we will use later.
+    @Around("loggingAnnotationPC()")
+    public Object anyLoggingAnnotationOperation(ProceedingJoinPoint proceedingJoinPoint) {
+
+        logger.info("Before -> Method: {} - Parameter {}"
+                , proceedingJoinPoint.getSignature().toShortString(), proceedingJoinPoint.getArgs());
+
+        //here we create an Object for the return part.
+        Object result = null;
+
+        //This try catch will be our line for the after part. Actually by using proceed method we said that we finish the before part you can continue to execute the method here. After the method executed the returning object assign to our result object.
+        try {
+            result = proceedingJoinPoint.proceed();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+
+        //After the method executed we take the logging information and for the return part of the method we use result to take the data. And we return result. As far as I understand we do not need to Object as a return type here. We can use void. and did not return result likewise.
+        logger.info("After -> Method: {} - Result: {}"
+                , proceedingJoinPoint.getSignature().toShortString(), result.toString());
+        return result;
+
+    }
 
 
 
