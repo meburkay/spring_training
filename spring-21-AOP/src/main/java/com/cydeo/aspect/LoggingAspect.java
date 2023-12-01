@@ -42,4 +42,36 @@ public class LoggingAspect {
                 , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
     }
 
+
+
+    //we use within with package. We define the package here as controller.. which means controller package and all the subpackages under it. By this every method under controller package will be Pointcut.
+//    @Pointcut("within(com.cydeo.controller..*)")
+//    public void anyControllerOperation() {}
+//
+    //@within we use annotations. And we must give the exact place of that annotation. Here we use it for the @service annotation. When we look at the import of @service annotation we see the address that we write below. By this every @Service annotation class's methods will be Pointcuts.
+//    @Pointcut("@within(org.springframework.stereotype.Service)")
+//    public void anyServiceOperation() {}
+//
+    //here we use or and use two Pointcuts together.
+//    @Before("anyControllerOperation() || anyServiceOperation()")
+//    public void beforeControllerOrServiceAdvice(JoinPoint joinPoint) {
+//        logger.info("Before -> Method: {}, Arguments: {}, Target: {}"
+//                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
+//    }
+
+
+    //We use @annotation here and like @within we give the exact import of the annotation. By this every @DeleteMapping annotations become pointcuts it doesn't matter which class or package they are in.
+//    @Pointcut("@annotation(org.springframework.web.bind.annotation.DeleteMapping)")
+//    public void anyDeleteControllerOperation() {}
+//
+//    @Before("anyDeleteControllerOperation()")
+//    public void beforeDeleteMappingAnnotation(JoinPoint joinPoint) {
+//        logger.info("Before -> Method: {}, Arguments: {}, Target: {}"
+//                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
+//    }
+
+
+
+
+
 }
