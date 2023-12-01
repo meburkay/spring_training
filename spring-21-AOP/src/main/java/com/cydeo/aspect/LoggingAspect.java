@@ -83,6 +83,38 @@ public class LoggingAspect {
 
 
 
+//    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
+//    public void afterReturningGetMappingAnnotation() {}
+//
+
+
+    //Here we use @AfterReturning annotation and different from before we use names when adding parameters and after pointcut parameter we add a returning parameter. And we can see what the method returns by using that result object.
+//    @AfterReturning(pointcut = "afterReturningGetMappingAnnotation()", returning = "result")
+//    public void afterReturningGetMappingOperation(JoinPoint joinPoint, Object result) {
+//        logger.info("After Returning -> Method: {}, Result: {}", joinPoint.getSignature(), result.toString());
+//    }
+//
+
+
+
+    //Here we try to do the same thing with list but when we use as List<Object> the method didn't work. After that we try to use the direct returning type and it worked. The issue is because of casting. We can cast one object but when it comes to list we can not do that.
+//    @AfterReturning(pointcut = "afterReturningGetMappingAnnotation()", returning = "results")
+//    public void afterReturningGetMappingOperation(JoinPoint joinPoint, List<CourseDTO> results) {
+//        logger.info("After Returning -> Method: {}, Result: {}", joinPoint.getSignature(), results.toString());
+//    }
+//
+    // CourseDTO -> Object     --> This is ok
+    // List<CourseDTO> -> List<Object>     --> This is not ok
+//
+
+
+    //We use here @AfterThrowing annotation. The parameters are the same as after returning. instead of return we use throwing and by that parameter we can see it at the log.
+//    @AfterThrowing(pointcut = "afterReturningGetMappingAnnotation()", throwing = "exception")
+//    public void afterThrowingGetMappingOperation(JoinPoint joinPoint, RuntimeException exception) {
+//        logger.error("After Throwing -> Method: {}, Exception: {}"
+//                , joinPoint.getSignature().toShortString(), exception.getMessage());
+//    }
+
 
 
 
