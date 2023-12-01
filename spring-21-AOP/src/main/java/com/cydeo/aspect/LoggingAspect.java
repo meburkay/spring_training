@@ -71,6 +71,19 @@ public class LoggingAspect {
 //    }
 
 
+    //We create our own annotation, we put it some methods at the CourseController and used it here.
+//    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
+//    public void loggingAnnotationPC() {}
+//
+//    @Before("loggingAnnotationPC()")
+//    public void beforeLoggingAnnotation(JoinPoint joinPoint) {
+//        logger.info("Before -> Method: {}, Arguments: {}, Target: {}"
+//                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
+//    }
+
+
+
+
 
 
 
