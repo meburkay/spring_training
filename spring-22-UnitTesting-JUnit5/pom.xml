@@ -8,6 +8,7 @@
     <artifactId>spring-22-UnitTesting-JUnit5</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
+<!--        this dependency is for JUnit5-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
