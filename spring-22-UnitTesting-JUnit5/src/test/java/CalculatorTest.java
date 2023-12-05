@@ -36,6 +36,8 @@ class CalculatorTest {
     }
 
     @Test
+    //If we use this at the test result is shows the name as My method instead of the method's actual name.
+    @DisplayName("My method")
     void add() {
         System.out.println("Add method");
         int actual = Calculator.add(2, 3);
@@ -87,4 +89,6 @@ class CalculatorTest {
         System.out.println("Test Case 5");
     }
 
+
+    // maven-surefire-plugin  If we use maven and add this plugin to pom.xml we can do tests by using maven screen.
 }
