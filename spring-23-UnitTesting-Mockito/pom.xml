@@ -50,6 +50,7 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+<!--        This spring dependency include JUnit and Mockito dependencies altogether. Because of that for test purpose we do not need to add any dependency.-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
